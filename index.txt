@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy 26th Birthday Bebebcu Viacu ????</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #ffe0ec 0%, #ffc2d9 50%, #ff9ebb 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+      position: relative;
+      color: #6b2747;
+      padding: 16px;
+    }
+
+    /* Animasi Hujan Boneka & Bunga di Background */
+    .floating-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .float-item {
+      position: absolute;
+      bottom: -60px;
+      font-size: 26px;
+      animation: floatUp linear infinite;
+      opacity: 0.85;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(0deg) scale(0.9);
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.9;
+      }
+      85% {
+        opacity: 0.9;
+      }
+      100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    /* Kartu Utama */
+    .card {
+      position: relative;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border: 3px solid #ffffff;
+      border-radius: 28px;
+      box-shadow: 0 18px 40px rgba(219, 77, 129, 0.28);
+      width: 100%;
+      max-width: 440px;
+      padding: 28px 22px;
+      text-align: center;
+      animation: popIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ffebf2;
+      color: #d81b60;
+      border: 1.5px dashed #ff6699;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-family: 'Pacifico', cursive;
+      color: #e91e63;
+      font-size: 28px;
+      margin-bottom: 6px;
+      text-shadow: 1px 2px 0px #ffe4ee;
+    }
+
+    h2 {
+      font-size: 19px;
+      color: #ad1457;
+      margin-bottom: 12px;
+    }
+
+    .doll-stage {
+      font-size: 46px;
+      margin: 14px 0;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    p {
+      font-size: 14.5px;
+      line-height: 1.65;
+      color: #5c243c;
+      margin-bottom: 14px;
+    }
+
+    .love-box {
+      background: #fff5f8;
+      border: 2px solid #ffc1d6;
+      border-radius: 18px;
+      padding: 15px;
+      text-align: left;
+      margin: 12px 0;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .spicy-alert {
+      background: #fff0f0;
+      border: 2px dashed #ff4d6d;
+      border-radius: 16px;
+      padding: 12px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .spicy-alert strong {
+      color: #d90429;
+      display: block;
+      margin-bottom: 6px;
+      font-size: 14.5px;
+    }
+
+    /* Galeri Polaroid */
+    .polaroid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 14px 0;
+    }
+
+    .polaroid {
+      background: #ffffff;
+      padding: 8px 8px 14px 8px;
+      border-radius: 10px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+      border: 1px solid #ffd6e5;
+      cursor: pointer;
+      transition: transform 0.25s;
+    }
+
+    .polaroid:nth-child(odd) { transform: rotate(-2deg); }
+    .polaroid:nth-child(even) { transform: rotate(2deg); }
+    .polaroid:hover { transform: scale(1.04) rotate(0deg); }
+
+    .polaroid-img-wrap {
+      width: 100%;
+      height: 115px;
+      background: #ffeef4;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .polaroid-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .polaroid-placeholder {
+      font-size: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 11px;
+      color: #c2185b;
+      padding: 6px;
+    }
+
+    .polaroid-placeholder span {
+      font-size: 28px;
+      margin-bottom: 4px;
+    }
+
+    .polaroid-caption {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: #880e4f;
+      margin-top: 8px;
+    }
+
+    /* Tombol */
+    .btn {
+      background: linear-gradient(135deg, #ff4d88, #e91e63);
+      color: #ffffff;
+      border: none;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(233, 30, 99, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+      margin-top: 8px;
+      display: inline-block;
+    }
+
+    .btn:active {
+      transform: scale(0.95);
+    }
+
+    .btn-secondary {
+      background: #ffe0ec;
+      color: #c2185b;
+      box-shadow: none;
+      border: 1.5px solid #ff80ab;
+      padding: 8px 16px;
+      font-size: 13px;
+    }
+
+    /* Kue Ulang Tahun & Lilin */
+    .cake-container {
+      margin: 26px auto 18px;
+      position: relative;
+      width: 200px;
+      height: 190px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    .candle-wrap {
+      position: relative;
+      display: flex;
+      gap: 14px;
+      margin-bottom: -4px;
+      z-index: 5;
+      cursor: pointer;
+    }
+
+    .candle {
+      width: 16px;
+      height: 46px;
+      background: repeating-linear-gradient(45deg, #ffffff, #ffffff 5px, #ff6699 5px, #ff6699 10px);
+      border-radius: 4px;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    .flame {
+      width: 16px;
+      height: 24px;
+      background: radial-gradient(circle at 50% 70%, #fff7b2, #ff9900 60%, #ff3300);
+      border-radius: 50% 50% 35% 35%;
+      position: absolute;
+      top: -24px;
+      left: 0;
+      box-shadow: 0 0 16px #ff9900, 0 0 28px #ff4d88;
+      animation: flicker 0.6s infinite alternate;
+    }
+
+    .flame.off {
+      display: none;
+    }
+
+    @keyframes flicker {
+      0% { transform: scale(1) rotate(-3deg); }
+      100% { transform: scale(1.12) rotate(3deg); }
+    }
+
+    .cake-top {
+      width: 130px;
+      height: 45px;
+      background: #ff80ab;
+      border-radius: 14px 14px 4px 4px;
+      border-top: 6px solid #fff0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #ffffff;
+      font-size: 18px;
+      box-shadow: inset 0 -4px 0 rgba(0,0,0,0.08);
+    }
+
+    .cake-bottom {
+      width: 175px;
+      height: 58px;
+      background: #f06292;
+      border-radius: 14px 14px 8px 8px;
+      border-top: 8px solid #ffe4ee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: 0 8px 0 #ad1457;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hujan Boneka & Bunga -->
+  <div class="floating-bg" id="floatingBg"></div>
+
+  <div class="card">
+    <!-- SLIDE 1: Pembuka -->
+    <div class="slide active" id="slide1">
+      <div class="badge">? Level 26 Unlocked ?</div>
+      <h1>Happy Birthday!</h1>
+      <h2>Noviana Kurniawati<br><small style="font-size:15px; color:#e91e63;">(Bebebcu Viacu Tersayang ??)</small></h2>
+      <div class="doll-stage">??????????</div>
+      <p>
+        Hai Bebebcu Viacu! Hari ini dunia resmi makin indah karena cewek paling imut dan lucuk sedunia genap berusia <strong>26 tahun</strong>! ???
+      </p>
+      <button class="btn" onclick="startJourney()">Buka Surat Cinta ??</button>
+    </div>
+
+    <!-- SLIDE 2: Suara Imut & Peringatan Pedes -->
+    <div class="slide" id="slide2">
+      <div class="badge">??? My Favorite Person ??</div>
+      <h2>Tentang Kamu yang Bikin Candu</h2>
+      <div class="love-box">
+        <p style="margin-bottom:8px;">
+          Jujur ya Bebebcu, dari sekian banyak hal indah di dunia ini, <strong>aku sukaaa banget sama suara kamu yang imut dan lucuk itu!</strong> ???? Tiap denger suara kamu, capekku langsung ilang seketika.
+        </p>
+        <div class="spicy-alert">
+          <strong>?? PERINGATAN DARURAT SAYANG ??</strong>
+          <p style="font-size:13px; margin-bottom:8px;">
+            Di umur 26 ini, tolong banget ya Bebebcu Viacu...<br>
+            <strong>KURANGIN MAM PEDES EKSTRIMNYAAAAAAA!! ???????</strong><br>
+            Aku sayang banget sama kamu, jadi perut cantiknya harus dijaga ya!
+          </p>
+          <button class="btn btn-secondary" id="promiseBtn" onclick="makePromise()">
+            Iya janji kurangin pedes! ????
+          </button>
+        </div>
+      </div>
+      <button class="btn" onclick="goSlide(3)">Lihat Galeri Kita ??</button>
+    </div>
+
+    <!-- SLIDE 3: Galeri Polaroid -->
+    <div class="slide" id="slide3">
+      <div class="badge">?? Sweet Memories ??</div>
+      <h2>Galeri Polaroid Viacu</h2>
+      <p style="font-size:12.5px; margin-bottom:8px;">
+        (Ketuk kotak foto untuk pasang foto langsung dari HP kamu ??)
+      </p>
+      <div class="polaroid-grid">
+        <div class="polaroid" onclick="pickPhoto(0)">
+          <div class="polaroid-img-wrap" id="wrap0">
+            <img src="foto1.jpg" alt="Foto 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="polaroid-placeholder" style="display:none;"><span>????</span>Ketuk pilih foto</div>
+          </div>
+          <div class="polaroid-caption">Si Paling Imut & Lucuk ??</div>
+        </div>
+
+        <div class="polaroid" onclick="pickPhoto(1)">
+          <div class="polaroid-img-wrap" id="wrap1">
+            <img src="foto2.jpg" alt="Foto 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="polaroid-placeholder" style="display:none;"><span>?????</span>Ketuk pilih foto</div>
+          </div>
+          <div class="polaroid-caption">Suara Ter-Gemes ??</div>
+        </div>
+
+        <div class="polaroid" onclick="pickPhoto(2)">
+          <div class="polaroid-img-wrap" id="wrap2">
+            <img src="foto3.jpg" alt="Foto 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="polaroid-placeholder" style="display:none;"><span>?????</span>Ketuk pilih foto</div>
+          </div>
+          <div class="polaroid-caption">Stop Pedes Ekstrim! ??</div>
+        </div>
+
+        <div class="polaroid" onclick="pickPhoto(3)">
+          <div class="polaroid-img-wrap" id="wrap3">
+            <img src="foto4.jpg" alt="Foto 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
+            <div class="polaroid-placeholder" style="display:none;"><span>??????????</span>Ketuk pilih foto</div>
+          </div>
+          <div class="polaroid-caption">Happy With U Always ??</div>
+        </div>
+      </div>
+      <input type="file" id="photoInput" accept="image/*" style="display:none" onchange="loadSelectedPhoto(event)" />
+      <button class="btn" onclick="goSlide(4)">Baca Doa Spesial ???</button>
+    </div>
+
+    <!-- SLIDE 4: Doa & Permintaan Maaf Tulus -->
+    <div class="slide" id="slide4">
+      <div class="badge">?? Doa & Harapan ke-26 ??</div>
+      <h2>Doa Terbaik Buat Bebebcu</h2>
+      <div class="love-box" style="max-height: 270px; overflow-y: auto;">
+        <p>
+          Selamat ulang tahun yang ke-26 ya, <strong>Noviana Kurniawati</strong> sayangku. Semoga kamu sehat selalu, makin lucuk, makin cantik, makin sayang aku, dan makin cinta sama aku! ????
+        </p>
+        <p>
+          Semoga di usia baru ini <strong>karir kamu melesat naik</strong>, punya <strong>penghasilan super besar</strong>, dan <strong>diterima di tempat kerja baru</strong> yang diisi orang-orang baik serta suportif. Semoga kamu selalu dikelilingi orang-orang tulus yang sayang sama kamu, dimudahkan segala urusanmu, bahagia selalu, dan diberi keberkahan untuk semua hal. ???
+        </p>
+        <p style="margin-bottom:0; border-top:1px dashed #ff9ebb; padding-top:8px;">
+          <em>Sayang, aku minta maaf ya kalau selama ini aku masih kurang buat kamu, masih banyak salah, dan belum sepenuhnya sesuai ekspektasi kamu... <strong>but I'm happy with u. Happy Birthday my Beloved Girlfriend!</strong></em> ????
+        </p>
+      </div>
+      <button class="btn" onclick="goSlide(5)">Saatnya Tiup Lilin! ?????</button>
+    </div>
+
+    <!-- SLIDE 5: Kue & Tiup Lilin -->
+    <div class="slide" id="slide5">
+      <div class="badge">?? Make A Wish 26th ???</div>
+      <h2>Tiup Lilinnya Bebebcu!</h2>
+      <p id="BlowInstruction">
+        Sebutkan doa terbaikmu dalam hati, lalu <strong>tiup ke arah mikrofon HP</strong> atau <strong>sentuh api lilinnya</strong> untuk meniup! ????
+      </p>
+
+      <div class="cake-container">
+        <div class="candle-wrap" onclick="blowCandles()">
+          <div class="candle"><div class="flame" id="flame1"></div></div>
+          <div class="candle"><div class="flame" id="flame2"></div></div>
+        </div>
+        <div class="cake-top">26 Tahun ??</div>
+        <div class="cake-bottom">??????????</div>
+      </div>
+
+      <button class="btn btn-secondary" id="micBtn" onclick="enableMicBlow()">
+        ??? Aktifkan Sensor Tiup Mikrofon
+      </button>
+      <br />
+      <button class="btn" onclick="blowCandles()">??? Tiup Lilin Sekarang!</button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Efek Hujan Boneka & Bunga
+    const icons = ['??', '??', '??', '??', '??', '??', '??', '??', '??'];
+    const bg = document.getElementById('floatingBg');
+    for (let i = 0; i < 24; i++) {
+      const span = document.createElement('span');
+      span.className = 'float-item';
+      span.innerText = icons[i % icons.length];
+      span.style.left = Math.random() * 100 + 'vw';
+      span.style.animationDuration = (6 + Math.random() * 7) + 's';
+      span.style.animationDelay = (Math.random() * 5) + 's';
+      span.style.fontSize = (20 + Math.random() * 16) + 'px';
+      bg.appendChild(span);
+    }
+
+    // 2. Navigasi Slide
+    function goSlide(num) {
+      document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+      document.getElementById('slide' + num).classList.add('active');
+    }
+
+    // 3. Musik Kotak Musik Ulang Tahun Otomatis (Web Audio API)
+    let audioCtx;
+    function playBirthdayMelody() {
+      try {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const notes = [
+          [261.6, 0.3], [261.6, 0.3], [293.7, 0.5], [261.6, 0.5], [349.2, 0.5], [329.6, 0.9],
+          [261.6, 0.3], [261.6, 0.3], [293.7, 0.5], [261.6, 0.5], [392.0, 0.5], [349.2, 0.9]
+        ];
+        let time = audioCtx.currentTime;
+        notes.forEach(([freq, dur]) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'sine';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.12, time);
+          gain.gain.exponentialRampToValueAtTime(0.001, time + dur);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(time);
+          osc.stop(time + dur);
+          time += dur + 0.06;
+        });
+      } catch (e) {}
+    }
+
+    function startJourney() {
+      playBirthdayMelody();
+      goSlide(2);
+    }
+
+    // 4. Tombol Janji Kurangin Pedes
+    function makePromise() {
+      const btn = document.getElementById('promiseBtn');
+      btn.innerText = '? Janji Viacu Tercatat: Stop Pedes Ekstrim! ??';
+      btn.style.background = '#d8f3dc';
+      btn.style.color = '#1b4332';
+      btn.style.borderColor = '#52b788';
+    }
+
+    // 5. Ganti Foto Polaroid dari Galeri HP
+    let activeSlot = 0;
+    function pickPhoto(slot) {
+      activeSlot = slot;
+      document.getElementById('photoInput').click();
+    }
+
+    function loadSelectedPhoto(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const wrap = document.getElementById('wrap' + activeSlot);
+        wrap.innerHTML = '<img src="' + e.target.result + '" alt="Foto Kita" />';
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // 6. Tiup Lilin dengan Sentuhan atau Mikrofon
+    function blowCandles() {
+      document.getElementById('flame1').classList.add('off');
+      document.getElementById('flame2').classList.add('off');
+      document.getElementById('BlowInstruction').innerHTML =
+        '?? <strong>Yeeay! Selamat Ulang Tahun ke-26 Bebebcu Viacu!</strong> ??<br>Semoga semua doa baikmu dikabulkan. I Love You So Much! ??????';
+      playBirthdayMelody();
+    }
+
+    async function enableMicBlow() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const ctx = new AudioContext();
+        const src = ctx.createMediaStreamSource(stream);
+        const analyser = ctx.createAnalyser();
+        src.connect(analyser);
+        const data = new Uint8Array(analyser.frequencyBinCount);
+        document.getElementById('micBtn').innerText = '??? Sekarang Tiup ke arah HP kamu...';
+
+        function checkBlow() {
+          analyser.getByteFrequencyData(data);
+          let sum = 0;
+          for (let i = 0; i < data.length; i++) sum += data[i];
+          if (sum / data.length > 42) {
+            blowCandles();
+            stream.getTracks().forEach(t => t.stop());
+          } else {
+            requestAnimationFrame(checkBlow);
+          }
+        }
+        checkBlow();
+      } catch (err) {
+        alert('Mikrofon belum diizinkan, langsung sentuh api lilinnya saja ya Bebebcu! ??');
+      }
+    }
+  </script>
+</body>
+</html>
